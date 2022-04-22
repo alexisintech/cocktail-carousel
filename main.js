@@ -1,11 +1,11 @@
 //The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
 
 
-document.getElementById("button2").addEventListener('click', getNextDrink)
+document.getElementById("button2").addEventListener('click', NextDrink)
 
 let drinkArr = [];
 
-function getNextDrink() {
+function NextDrink() {
 
     let url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
 
@@ -29,9 +29,11 @@ function getNextDrink() {
 
 }
 
-document.getElementById("button1").addEventListener('click', getLastDrink)
+document.getElementById("button1").addEventListener('click', LastDrink)
 
-function getLastDrink() {
-    let lastDrink = drinkArr.length - 1;
-    document.querySelector('h1').innerText = [lastDrink].strDrink;
+function LastDrink() {
+    let lastDrink = drinkArr[drinkArr.length - 1];
+    console.log(lastDrink);
+    document.querySelector('h1').innerText = lastDrink.strDrink;
+    document.getElementById('img').src = lastDrink.strDrinkThumb;
 }
